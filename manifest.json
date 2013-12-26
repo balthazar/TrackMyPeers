@@ -1,0 +1,17 @@
+{
+	"name": "TrackMyPeers",
+	"description": "",
+	"version": "0.0.1",
+	"manifest_version": 2,
+	"icons": {
+		"16": "img/icon16.png",
+		"48": "img/icon48.png",
+		"64": "img/icon64.png",
+		"128": "img/icon128.png"
+	},
+	"content_scripts": [{
+		"matches": ["http://intra.42.fr/", "https://intra.42.fr/"],
+		"js": ["js/lib/jquery-2.0.3.min.js", "js/content.js"]
+	}],
+	"permissions": ["tabs"]
+}
