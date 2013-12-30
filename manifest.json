@@ -1,10 +1,11 @@
 {
 	"name": "TrackMyPeers",
-	"description": "",
-	"version": "0.0.3",
+	"description": "Target your peers easily",
+	"version": "0.0.4",
 	"manifest_version": 2,
 	"icons": {
 		"16": "img/icon16.png",
+		"24": "img/icon24.png",
 		"48": "img/icon48.png",
 		"64": "img/icon64.png",
 		"128": "img/icon128.png"
