@@ -1,9 +1,10 @@
-$(".peering").css("width", "40%");
+$(".peering").css("width", "39%");
 $(".final_note").css("width", "24%");
 
-$(".peering ul:first a").each(function(){
+$(".peering ul:even a").each(function(){
 
-	$(this).text($(this).text().replace("noter le groupe " + $(".peering h3:first a:last").text(), "noter"));
+	var remove = $(this).parent().parent().prev().find("a").last();
+	$(this).text($(this).text().replace("noter le groupe " + remove.text(), "noter"));
 	var link = $(this);
 	var text = link.text().replace("devez noter ", "");
 	if (text != "avez donné la note")
@@ -21,7 +22,7 @@ $(".peering ul:first a").each(function(){
 	}
 });
 
-$(".peering ul:last a[title]").each(function(){
+$(".peering ul:odd a[title]").each(function(){
 
 	var link = $(this);
 	$.ajax({
