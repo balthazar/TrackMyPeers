@@ -7,7 +7,7 @@ $(".peering ul:first a").each(function(){
 	var link = $(this);
 	var text = link.text().replace("devez noter  ", "")
 	$.ajax({
-		url: "//dashboard.42.fr/crawler/pull/" + text,
+		url: "https://dashboard.42.fr/crawler/pull/" + text + "/",
 		dataType: "json",
 		success: function(result){
 			if (link.next().id != "review" + text)
@@ -24,7 +24,7 @@ $(".peering a[title]").each(function(){
 
 	var link = $(this);
 	$.ajax({
-		url: "//dashboard.42.fr/crawler/pull/" + link.text(),
+		url: "https://dashboard.42.fr/crawler/pull/" + link.text() + "/",
 		dataType: "json",
 		success: function(result){
 			if (link.next().id != "correc" + link.text())
