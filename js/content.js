@@ -1,13 +1,15 @@
 $(".peering").css("width", "39%");
 $(".final_note").css("width", "24%");
 
+//chrome.extension.sendMessage({type: "getTime" });
+
 $(".peering ul:even a").each(function(){
 
 	var remove = $(this).parent().parent().prev().find("a").last();
 	$(this).text($(this).text().replace("noter le groupe " + remove.text(), "noter"));
 	var link = $(this);
 	var text = link.text().replace("devez noter ", "");
-	if (text != "avez donné la note")
+	if (text != "avez donné la note" && text != "devez noter")
 	{
 		$.ajax({
 			url: "https://dashboard.42.fr/crawler/pull/" + text + "/",
@@ -16,7 +18,7 @@ $(".peering ul:even a").each(function(){
 				link.after(' (<span style="color: #01824A;font-weight:bold;">' + result.last_host.replace(".42.fr", "") + "</span>)");
 			},
 			error: function(result){
-				link.after(' (<span style="color: #F5634A;font-weight:bold;">Logout</span>)');
+				link.after(' (<span style="color: #F5634A;font-weight:bold;">Logged out</span>)');
 			}
 		});
 	}
@@ -32,7 +34,7 @@ $(".peering ul:odd a[title]").each(function(){
 			link.after(' (<span style="color: #01824A;font-weight:bold;">' + result.last_host.replace(".42.fr", "") + "</span>)");
 		},
 		error: function(result){
-			link.after(' (<span style="color: #F5634A;font-weight:bold;">Logout</span>)');
+			link.after(' (<span style="color: #F5634A;font-weight:bold;">Logged out</span>)');
 		}
 	});
 });
