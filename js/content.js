@@ -43,6 +43,7 @@ $(document).on('DOMNodeInserted', function(e) {
 
 	var that = e.target.firstChild;
 	$('.ncompletion').css("height", "");
+	$('.ncompletion').css("max-height", "300px");
 	if (that && that.className == "col1 login")
 	{
 		$('.ncompletion').css("width", "400px");
