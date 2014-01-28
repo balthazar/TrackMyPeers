@@ -1,7 +1,7 @@
 {
 	"name": "TrackMyPeers",
 	"description": "Target your peers easily",
-	"version": "1.1",
+	"version": "1.2",
 	"manifest_version": 2,
 	"icons": {
 		"16": "img/icon16.png",
@@ -12,7 +12,7 @@
 	},
 	"content_scripts": [{
 		"matches": ["http://intra.42.fr/", "https://intra.42.fr/"],
-		"js": ["js/lib/jquery-2.0.3.min.js", "js/content.js"]
+		"js": ["js/lib/jquery-2.1.0.min.js", "js/content.js"]
 	}],
 	"permissions": [
 		"https://dashboard.42.fr/"
