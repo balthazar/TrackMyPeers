@@ -46,7 +46,7 @@ $(document).on('DOMNodeInserted', function(e) {
 	$('.ncompletion').css("max-height", "300px");
 	if (that && that.className == "col1 login")
 	{
-		$('.ncompletion').css("width", "450px");
+		$('.ncompletion').css("width", "400px");
 		var text = that.innerText;
 		var magic = text.match(/^.*\((.*)\)/);
 		$.ajax({
