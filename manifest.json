@@ -10,9 +10,6 @@
 		"64": "img/icon64.png",
 		"128": "img/icon128.png"
 	},
-	"background" :{
-		"scripts": ["js/background.js"]
-	},
 	"content_scripts": [{
 		"matches": ["http://intra.42.fr/", "https://intra.42.fr/"],
 		"js": ["js/lib/jquery-2.0.3.min.js", "js/content.js"]
