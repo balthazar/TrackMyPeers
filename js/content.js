@@ -42,10 +42,10 @@ $(".peering ul:odd a[title]").each(function(){
 $(document).on('DOMNodeInserted', function(e) {
 
 	var that = e.target.firstChild;
-	$('.ncompletion').css("height", "");
 	if (that && that.className == "col1 login")
 	{
-		$('.ncompletion').css("width", "400px");
+		$('.ncompletion').css("height", "300px");
+		$('.ncompletion').css("width", "450px");
 		var text = that.innerText;
 		var magic = text.match(/^.*\((.*)\)/);
 		$.ajax({
@@ -53,7 +53,7 @@ $(document).on('DOMNodeInserted', function(e) {
 			dataType: "json",
 			success: function(result)
 			{
-				$(that).html(text + ' (<span style="color: #01824A;font-weight:bold;">' + result.last_host.replace(".42.fr", "") + "</span>)");
+				$(that).html(text + '<br>(<span style="color: #01824A;font-weight:bold;">' + result.last_host.replace(".42.fr", "") + "</span>)");
 			},
 			error: function(){
 				$(that).html(text + ' (<span style="color: #F5634A;font-weight:bold;">x</span>)');
