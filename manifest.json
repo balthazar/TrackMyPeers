@@ -11,7 +11,7 @@
 		"128": "img/icon128.png"
 	},
 	"content_scripts": [{
-		"matches": ["http://intra.42.fr/", "https://intra.42.fr/"],
+		"matches": ["http://intra.42.fr/*", "https://intra.42.fr/*"],
 		"js": ["js/lib/jquery-2.1.0.min.js", "js/content.js"]
 	}],
 	"permissions": [
