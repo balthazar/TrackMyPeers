@@ -5,17 +5,21 @@ $(".peering ul:even a").each(function(){
 
 	var link = $(this);
 	var text = $(this).text();
-	text = text.replace(/.* (.*)$/, "$1");
-	$.ajax({
-		url: "https://dashboard.42.fr/crawler/pull/" + text + "/",
-		dataType: "json",
-		success: function(result){
-			link.after(' (<span class="tracksuccess">' + result.last_host.replace(".42.fr", "") + "</span>)");
-		},
-		error: function(result){
-			link.after(' (<span class="trackerror">Logged out</span>)');
-		}
-	});
+	if (text != "avez donné la note" && text != "devez noter")
+	{
+		text = text.replace(/.* (.*)$/, "$1");
+		$.ajax({
+			url: "https://dashboard.42.fr/crawler/pull/" + text + "/",
+			dataType: "json",
+			success: function(result){
+				link.after(' (<span class="tracksuccess">' + result.last_host.replace(".42.fr", "") + "</span>)");
+			},
+			error: function(result){
+				link.after(' (<span class="trackerror">Logged out</span>)');
+			}
+		});
+	}
+
 });
 
 $(".peering ul:odd a[title]").each(function(){
@@ -31,6 +35,7 @@ $(".peering ul:odd a[title]").each(function(){
 			link.after(' (<span class="trackerror">Logged out</span>)');
 		}
 	});
+
 });
 
 $(document).on('DOMNodeInserted', function(e) {
@@ -55,4 +60,5 @@ $(document).on('DOMNodeInserted', function(e) {
 			}
 		});
 	}
+
 });
