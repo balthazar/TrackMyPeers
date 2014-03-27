@@ -1,27 +1,21 @@
 $(".peering").css("width", "39%");
 $(".final_note").css("width", "24%");
 
-//chrome.extension.sendMessage({type: "getTime" });
-
 $(".peering ul:even a").each(function(){
 
-	var remove = $(this).parent().parent().prev().find("a").last();
-	$(this).text($(this).text().replace("noter le groupe " + remove.text(), "noter"));
 	var link = $(this);
-	var text = link.text().replace("devez noter ", "");
-	if (text != "avez donné la note" && text != "devez noter")
-	{
-		$.ajax({
-			url: "https://dashboard.42.fr/crawler/pull/" + text + "/",
-			dataType: "json",
-			success: function(result){
-				link.after(' (<span style="color: #01824A;font-weight:bold;">' + result.last_host.replace(".42.fr", "") + "</span>)");
-			},
-			error: function(result){
-				link.after(' (<span style="color: #F5634A;font-weight:bold;">Logged out</span>)');
-			}
-		});
-	}
+	var text = $(this).text();
+	text = text.replace(/.* (.*)$/, "$1");
+	$.ajax({
+		url: "https://dashboard.42.fr/crawler/pull/" + text + "/",
+		dataType: "json",
+		success: function(result){
+			link.after(' (<span class="tracksuccess">' + result.last_host.replace(".42.fr", "") + "</span>)");
+		},
+		error: function(result){
+			link.after(' (<span class="trackerror">Logged out</span>)');
+		}
+	});
 });
 
 $(".peering ul:odd a[title]").each(function(){
@@ -31,10 +25,10 @@ $(".peering ul:odd a[title]").each(function(){
 		url: "https://dashboard.42.fr/crawler/pull/" + link.text() + "/",
 		dataType: "json",
 		success: function(result){
-			link.after(' (<span style="color: #01824A;font-weight:bold;">' + result.last_host.replace(".42.fr", "") + "</span>)");
+			link.after(' (<span class="tracksuccess">' + result.last_host.replace(".42.fr", "") + "</span>)");
 		},
 		error: function(result){
-			link.after(' (<span style="color: #F5634A;font-weight:bold;">Logged out</span>)');
+			link.after(' (<span class="trackerror">Logged out</span>)');
 		}
 	});
 });
@@ -54,10 +48,10 @@ $(document).on('DOMNodeInserted', function(e) {
 			dataType: "json",
 			success: function(result)
 			{
-				$(that).html(text + '<br>(<span style="color: #01824A;font-weight:bold;">' + result.last_host.replace(".42.fr", "") + "</span>)");
+				$(that).html(text + '<br>(<span class="tracksuccess">' + result.last_host.replace(".42.fr", "") + "</span>)");
 			},
 			error: function(){
-				$(that).html(text + ' (<span style="color: #F5634A;font-weight:bold;">x</span>)');
+				$(that).html(text + ' (<span class="trackerror">x</span>)');
 			}
 		});
 	}

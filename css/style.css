@@ -1,0 +1,11 @@
+.tracksuccess, .trackerror {
+  font-weight: bold;
+}
+
+.tracksuccess {
+  color: #01824A;
+}
+
+.trackerror {
+  color: #F5634A;
+}
