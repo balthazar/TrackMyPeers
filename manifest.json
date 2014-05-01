@@ -1,7 +1,7 @@
 {
 	"name": "TrackMyPeers",
 	"description": "Target your peers easily",
-	"version": "1.5",
+	"version": "1.9",
 	"manifest_version": 2,
 	"icons": {
 		"16": "img/icon16.png",
@@ -15,6 +15,9 @@
 		"js": ["js/lib/jquery-2.1.0.min.js", "js/content.js"],
 		"css": ["css/style.css"]
 	}],
+	"background" : {
+		"scripts": ["js/lib/jquery-2.1.0.min.js", "js/background.js"]
+	},
 	"permissions": [
 		"https://dashboard.42.fr/"
 	]
