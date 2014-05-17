@@ -1,5 +1,14 @@
-$('.peering').css('width', '39%');
-$('.final_note').css('width', '24%');
+//localStorage.setItem('field', null);
+var field = JSON.parse(localStorage.getItem('field'));
+
+if (!field) {
+	field = {
+		updated : new Date(),
+		targets : []
+	};
+
+	localStorage.setItem('field', JSON.stringify(field));
+}
 
 $('.peering ul:even a').each(function() {
 
@@ -31,6 +40,22 @@ $('.peering ul:odd a[title]').each(function() {
 		}
 	});
 });
+
+/* Debug when no eval process */
+$('.peering').html('<div class="user">bgronon</div><div class="user">mpillet</div><div class="user">fbeck</div><div class="user">janteuni</div><div class="user">hmassing</div>');
+
+$('.peering .user').each(function() {
+	var link = $(this);
+	var login = $(this).text();
+	if (field.targets.indexOf(login) == -1) {
+		field.targets.push(login);
+	}
+	localStorage.setItem('field', JSON.stringify(field));
+});
+
+console.log(field);
+
+/* */
 
 $(document).on('DOMNodeInserted', function(e) {
 
