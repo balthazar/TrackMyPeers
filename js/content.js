@@ -1,14 +1,8 @@
-//localStorage.setItem('field', null);
-var field = JSON.parse(localStorage.getItem('field'));
-
-if (!field) {
-	field = {
-		updated : new Date(),
-		targets : []
-	};
-
-	localStorage.setItem('field', JSON.stringify(field));
-}
+var field = {
+	login   : null,
+	updated : new Date().getTime(),
+	targets : []
+};
 
 $('.peering ul:even a').each(function() {
 
@@ -50,10 +44,13 @@ $('.peering .user').each(function() {
 	if (field.targets.indexOf(login) == -1) {
 		field.targets.push(login);
 	}
-	localStorage.setItem('field', JSON.stringify(field));
 });
 
-console.log(field);
+field.login = $('#identification .infos .title span:first-child').attr('title');
+
+chrome.extension.sendMessage({ type: 'postField', data: field }, function (response) {
+	console.log(response.state);
+});
 
 /* */
 

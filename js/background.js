@@ -1,8 +1,7 @@
 var tracking = [];
 
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
-	if (request.type == 'getData')
-	{
+	if (request.type === 'getData') {
 		var now = new Date();
 
 		var reloadData = function () {
@@ -37,6 +36,25 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 				reloadData();
 			}
 		}
-		return true
+		return (true);
+	}
+	else if (request.type === 'postField') {
+
+		var now = new Date(request.data.updated);
+
+		$.ajax({
+			method: 'POST',
+			url: 'http://localhost:9000/api/sync',
+			dataType: 'json',
+			data: { 'login' : request.data.login, 'targets' : request.data.targets, 'date' : now },
+			success: function (res) {
+				sendResponse({ 'state' : 'ok' });
+			},
+			error: function (err) {
+				sendResponse({ 'state' : 'err' });
+				console.log(err);
+			}
+		});
+		return (true);
 	}
 });

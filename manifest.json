@@ -19,6 +19,7 @@
 		"scripts": ["js/lib/jquery-2.1.0.min.js", "js/background.js"]
 	},
 	"permissions": [
-		"https://dashboard.42.fr/"
+		"https://dashboard.42.fr/",
+		"http://localhost:9000/api/*"
 	]
 }
