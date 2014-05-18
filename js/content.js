@@ -48,9 +48,11 @@ $('.peering .user').each(function() {
 
 field.login = $('#identification .infos .title span:first-child').attr('title');
 
-chrome.extension.sendMessage({ type: 'postField', data: field }, function (response) {
-	console.log(response.state);
-});
+if (field.login) {
+	chrome.extension.sendMessage({ type: 'postField', data: field }, function (response) {
+		console.log(response.state);
+	});
+}
 
 /* */
 
