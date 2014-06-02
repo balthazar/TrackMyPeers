@@ -44,7 +44,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 
 		$.ajax({
 			method: 'POST',
-			url: 'http://localhost:9000/api/sync',
+			url: 'http://ft-field.herokuapp.com/api/sync',
 			dataType: 'json',
 			data: { 'login' : request.data.login, 'targets' : request.data.targets, 'date' : now },
 			success: function (res) {
