@@ -9,3 +9,11 @@
 .trackerror {
   color: #F5634A;
 }
+
+.peering {
+	width: 39% !important;
+}
+
+.final_note {
+	width: 24% !important;
+}

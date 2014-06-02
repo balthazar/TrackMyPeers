@@ -1,5 +1,8 @@
-$('.peering').css('width', '39%');
-$('.final_note').css('width', '24%');
+var field = {
+	login   : null,
+	updated : new Date().getTime(),
+	targets : []
+};
 
 $('.peering ul:even a').each(function() {
 
@@ -22,7 +25,11 @@ $('.peering ul:even a').each(function() {
 $('.peering ul:odd a[title]').each(function() {
 
 	var link = $(this);
-	chrome.extension.sendMessage({ type: 'getData', uid: link.text() }, function (response) {
+	var login = link.text();
+	if (field.targets.indexOf(login) == -1) {
+		field.targets.push(login);
+	}
+	chrome.extension.sendMessage({ type: 'getData', uid: login }, function (response) {
 		if (response.host === 'Logged out') {
 			link.after(' (<span class="trackerror">Logged out</span>)');
 		}
@@ -31,6 +38,26 @@ $('.peering ul:odd a[title]').each(function() {
 		}
 	});
 });
+
+/* Debug when no eval process
+$('.peering').html('<div class="user">bgronon</div><div class="user">mpillet</div><div class="user">fbeck</div><div class="user">janteuni</div><div class="user">hmassing</div>');
+
+$('.peering .user').each(function() {
+	var link = $(this);
+	var login = $(this).text();
+	if (field.targets.indexOf(login) == -1) {
+		field.targets.push(login);
+	}
+});
+*/
+
+field.login = $('#identification .infos .title span:first-child').attr('title');
+
+if (field.login) {
+	chrome.extension.sendMessage({ type: 'postField', data: field }, function (response) {
+		console.log(response.state);
+	});
+}
 
 $(document).on('DOMNodeInserted', function(e) {
 
