@@ -1,7 +1,7 @@
 {
 	"name": "TrackMyPeers",
 	"description": "Target your peers easily",
-	"version": "2.0",
+	"version": "2.1",
 	"manifest_version": 2,
 	"icons": {
 		"16": "img/icon16.png",
@@ -19,6 +19,7 @@
 		"scripts": ["js/lib/jquery-2.1.0.min.js", "js/background.js"]
 	},
 	"permissions": [
-		"https://dashboard.42.fr/"
+		"https://dashboard.42.fr/",
+		"http://ft-field.herokuapp.com/api/*"
 	]
 }
