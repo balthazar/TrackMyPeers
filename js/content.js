@@ -39,18 +39,6 @@ $('.peering ul:odd a[title]').each(function() {
 	});
 });
 
-/* Debug when no eval process
-$('.peering').html('<div class="user">bgronon</div><div class="user">mpillet</div><div class="user">fbeck</div><div class="user">janteuni</div><div class="user">hmassing</div>');
-
-$('.peering .user').each(function() {
-	var link = $(this);
-	var login = $(this).text();
-	if (field.targets.indexOf(login) == -1) {
-		field.targets.push(login);
-	}
-});
-*/
-
 field.login = $('#identification .infos .title span:first-child').attr('title');
 
 if (field.login) {
