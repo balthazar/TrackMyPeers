@@ -5,7 +5,7 @@ Tool to help finding your peers
 
 ###Update 2.1
 
-- Linking with [Field App](ft-field.herokuapp.com)
+- Linking with [Field App](http://ft-field.herokuapp.com)
 
 ###Update 2.0
 
