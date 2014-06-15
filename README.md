@@ -3,6 +3,10 @@
 
 Tool to help finding your peers
 
+###Update 2.1
+
+- Linking with [Field App](ft-field.herokuapp.com)
+
 ###Update 2.0
 
 - Optimisation, the hostnames are cached and reloaded every 5 minutes.
