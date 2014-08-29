@@ -1,7 +1,7 @@
 {
 	"name": "TrackMyPeers",
 	"description": "Target your peers easily",
-	"version": "2.1",
+	"version": "2.2",
 	"manifest_version": 2,
 	"icons": {
 		"16": "img/icon16.png",
