@@ -3,6 +3,8 @@
 
 Tool to help finding your peers
 
+> #### Since the v2 of our intra, this project had become unnecessary.
+
 ###Update 2.1
 
 - Linking with [Field App](http://ft-field.herokuapp.com)
